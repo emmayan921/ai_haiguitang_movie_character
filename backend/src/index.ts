@@ -17,7 +17,7 @@ app.get('/api/health', (_req, res) => {
   res.json({ ok: true })
 })
 
-app.use('/api/ai', aiRouter)
+app.use('/api', aiRouter)
 
 app.use(notFoundHandler)
 app.use(errorHandler)
