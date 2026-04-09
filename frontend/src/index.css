@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+
+:root {
+  font-family: 'Inter', 'PingFang SC', 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f3f4f6;
+  background: #06070b;
+}
+
+body {
+  @apply m-0 min-h-screen text-slate-100;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(217, 70, 239, 0.25), transparent 28%),
+    radial-gradient(circle at 90% 18%, rgba(124, 58, 237, 0.28), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(236, 72, 153, 0.14), transparent 30%),
+    linear-gradient(180deg, #0a0b10 0%, #05060a 50%, #08070f 100%);
+}
+
+#root {
+  @apply min-h-screen;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button {
+  transition: all 220ms ease;
+}
