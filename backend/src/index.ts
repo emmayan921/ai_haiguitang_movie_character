@@ -1,27 +1,21 @@
-import './loadEnv'
-import cors from 'cors'
-import express from 'express'
-import { errorHandler } from './middleware/errorHandler'
-import { notFoundHandler } from './middleware/notFound'
-import { requestLogger } from './middleware/requestLogger'
-import { aiRouter } from './routes/ai'
+import express from 'express';
+import cors from 'cors';
+import aiRouter from './routes/ai';
 
-const app = express()
-const PORT = Number(process.env.PORT || 8787)
+const app = express();
 
-app.use(cors())
-app.use(express.json())
-app.use(requestLogger)
+// 中间件
+app.use(cors());
+app.use(express.json());
 
+// 健康检查接口（测试用）
 app.get('/api/health', (_req, res) => {
-  res.json({ ok: true })
-})
+  res.json({ ok: true });
+});
 
-app.use('/api', aiRouter)
+// AI 路由
+app.use('/api/ai', aiRouter);
 
-app.use(notFoundHandler)
-app.use(errorHandler)
-
-app.listen(PORT, () => {
-  console.log(`Backend server running at http://localhost:${PORT}`)
-})
+// ⚠️ 重点：删除所有 app.listen！！！
+// ⚠️ 重点：必须导出 app 给 Vercel！！！
+export default app;
