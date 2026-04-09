@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import aiRouter from './routes/ai';
+import { aiRouter } from './routes/ai';
 
 const app = express();
 
